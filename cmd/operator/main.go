@@ -100,7 +100,7 @@ func main() {
 		logrus.Fatalf("failed to get hostname: %v", err)
 	}
 
-	kubecli := k8sutil.MustNewKubeClient() // 创建客户端，访问k8s APi，http://www.recall704.com/cloud/k8s-authentication-with-token/
+	kubecli := k8sutil.MustNewKubeClient() // 鍒濆鍖栧鎴风锛屽拰k8sapi閫氫俊 http://www.recall704.com/cloud/k8s-authentication-with-token/
 
 	http.HandleFunc(probe.HTTPReadyzEndpoint, probe.ReadyzHandler)
 	http.Handle("/metrics", prometheus.Handler())
