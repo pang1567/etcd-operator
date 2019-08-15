@@ -23,7 +23,7 @@ import (
 )
 
 type Member struct {
-	Name string
+	Name string // example-etcd-cluster-cbrr8xcl5b (example-etcd-cluster-${randdomstr, len=10})
 	// Kubernetes namespace this member runs in.
 	Namespace string
 	// ID field can be 0, which is unknown ID.
