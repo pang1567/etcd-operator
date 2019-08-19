@@ -1,5 +1,5 @@
 # Restore Cluster From Existing Backup
-
+从指定的备份恢复
 We want to restore an etcd cluster from existing backup that operator has saved before.
 
 We add a field in ClusterSpec:
@@ -20,7 +20,7 @@ type RestorePolicy struct {
     StorageType BackupStorageType
 }
 ```
-
+如果集群挂掉了，当设置了restorePolicy，可以通过备份恢复
 For example, let's say, a user has a cluster "etcd-A" running. For some reason, it stops working.
 At the end, the cluster is killed by user or dead by itself. Fortunately, the cluster was run with
 valid BackupPolicy and saved with backup. Now, user can restore the cluster by adding "restorePolicy"

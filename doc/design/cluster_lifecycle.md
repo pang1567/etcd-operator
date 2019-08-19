@@ -1,5 +1,7 @@
 # etcd cluster lifecycle in etcd operator
 
+集群生命周期
+
 Let's talk about the lifecycle of etcd cluster "A".
 
 - Initially, "A" doesn't exist. Operator considers this cluster has 0 members.

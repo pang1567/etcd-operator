@@ -1,9 +1,8 @@
-## Cluster status reporting
-
+## Cluster status reporting 集群状态
 An etcd cluster permanently fails when all its members are dead and no backup is available. A user might update etcd cluster TPR with invalid input or format. The operator needs to notify users about these bad events.
 
 A common way to do this in the Kubernetes world is through status field, like pod.status. The etcd operator will write out cluster status similar to pod status.
-
+etcd-operator自身保存了类似pod.status的ClusterStatus的内容。
 ```go
 type EtcdCluster struct {
     unversioned.TypeMeta `json:",inline"`
@@ -29,6 +28,7 @@ To not overwrite the user input, the etcd operator will set resource version, an
 
 To not be affected by the potential empty or broken status accidentally written by the user, the etcd operator will never read the status from TPR. It always keeps the source of truth in memory.
 
+TPR 是：
 In summary, the TPR:
 
 - receive spec update (or initialize spec) with a resource version

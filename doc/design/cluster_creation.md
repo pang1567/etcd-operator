@@ -1,5 +1,4 @@
-# Cluster creation
-
+# Cluster creation 集群创建
 The create a cluster when it receives an `added` event.
 
 To initialize a cluster, we first need to create a seed etcd member. Then we can rely on resize to increase the cluster size to the desired number of members.
