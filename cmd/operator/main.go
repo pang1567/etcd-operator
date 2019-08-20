@@ -104,7 +104,7 @@ func main() {
 
 	http.HandleFunc(probe.HTTPReadyzEndpoint, probe.ReadyzHandler)
 	http.Handle("/metrics", prometheus.Handler())
-	go http.ListenAndServe(listenAddr, nil)
+	go http.ListenAndServe(listenAddr, nil) //  HTTP status code 200 if the operator is ready, and 500 otherwise
 
 	rl, err := resourcelock.New(resourcelock.EndpointsResourceLock,
 		namespace,
@@ -133,7 +133,7 @@ func main() {
 			},
 		},
 	})
-
+	// https://zhengyinyong.com/kubernetes-pod-leader-election.html
 	panic("unreachable")
 }
 
